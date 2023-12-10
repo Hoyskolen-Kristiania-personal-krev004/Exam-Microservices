@@ -15,9 +15,9 @@ import static no.exam.rentablesservice.mapper.RentableMapper.mapToRentableDto;
 public class RentableServiceImpl implements RentableService {
     private RentableRepository rentableRepository;
     @Override
-    public RentableDto saveRentable(RentableDto rentableDto) {
-        Rentable savedRentable = rentableRepository.save(mapToRentable(rentableDto));
-        return mapToRentableDto(savedRentable);
+    public RentableDto createRentable(RentableDto rentableDto) {
+        Rentable createdRentable = rentableRepository.save(mapToRentable(rentableDto));
+        return mapToRentableDto(createdRentable);
     }
 
     @Override

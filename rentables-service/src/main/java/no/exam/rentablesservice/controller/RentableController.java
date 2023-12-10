@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class RentableController {
     private RentableService rentableService;
     @PostMapping
-    public ResponseEntity<RentableDto> saveRentable(@RequestBody RentableDto rentableDto){
-        RentableDto savedRentable = rentableService.saveRentable(rentableDto);
-        return new ResponseEntity<>(savedRentable, HttpStatus.CREATED);
+    public ResponseEntity<RentableDto> createRentable(@RequestBody RentableDto rentableDto){
+        RentableDto createdRentable = rentableService.createRentable(rentableDto);
+        return new ResponseEntity<>(createdRentable, HttpStatus.CREATED);
     }
     @GetMapping("{id}")
     public ResponseEntity<RentableDto> getRentableById(@PathVariable("id") Long rentableId){
