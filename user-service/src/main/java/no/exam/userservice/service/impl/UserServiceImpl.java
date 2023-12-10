@@ -17,8 +17,14 @@ public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
     @Override
-    public UserDto saveUser(UserDto userDto) {
+    public UserDto createUser(UserDto userDto) {
         User user = userRepository.save(mapToUser(userDto));
+        return mapToUserDto(user);
+    }
+
+    @Override
+    public UserDto getUserById(Long userId) {
+        User user = userRepository.findById(userId).get();
         return mapToUserDto(user);
     }
 }
