@@ -37,3 +37,7 @@ build/
 /rentables-service/mvnw
 /user-service/mvnw
 /user-service/mvnw.cmd
+/rentables-service/.mvn/wrapper/maven-wrapper.jar
+/user-service/.mvn/wrapper/maven-wrapper.jar
+/rentables-service/.mvn/wrapper/maven-wrapper.properties
+/user-service/.mvn/wrapper/maven-wrapper.properties
