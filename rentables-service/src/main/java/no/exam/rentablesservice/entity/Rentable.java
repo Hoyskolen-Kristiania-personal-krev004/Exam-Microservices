@@ -18,6 +18,7 @@ public class Rentable {
     private Long rentableId;
     private String rentableName;
     private String rentableDescription;
+    @Column(nullable = false)
     private Long ownerId;
 
 
