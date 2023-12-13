@@ -41,3 +41,5 @@ build/
 /user-service/.mvn/wrapper/maven-wrapper.jar
 /rentables-service/.mvn/wrapper/maven-wrapper.properties
 /user-service/.mvn/wrapper/maven-wrapper.properties
+/service-registry/.mvn/wrapper/maven-wrapper.jar
+/service-registry/.mvn/wrapper/maven-wrapper.properties
