@@ -1,8 +1,7 @@
 HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+**/src/main/**/target/
+**/src/test/**/target/
 
 ### STS ###
 .apt_generated
@@ -33,13 +32,7 @@ build/
 .vscode/
 
 /env.properties
-/rentables-service/mvnw.cmd
-/rentables-service/mvnw
-/user-service/mvnw
-/user-service/mvnw.cmd
-/rentables-service/.mvn/wrapper/maven-wrapper.jar
-/user-service/.mvn/wrapper/maven-wrapper.jar
-/rentables-service/.mvn/wrapper/maven-wrapper.properties
-/user-service/.mvn/wrapper/maven-wrapper.properties
-/service-registry/.mvn/wrapper/maven-wrapper.jar
-/service-registry/.mvn/wrapper/maven-wrapper.properties
+**/mvnw.cmd
+**/mvnw
+**/.mvn
+
