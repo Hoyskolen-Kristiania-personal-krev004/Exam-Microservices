@@ -1,6 +1,7 @@
 package no.exam.rentablesservice.controller;
 
 import lombok.AllArgsConstructor;
+import no.exam.rentablesservice.dto.APIResponseDto;
 import no.exam.rentablesservice.dto.RentableDto;
 import no.exam.rentablesservice.service.RentableService;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ public class RentableController {
         return new ResponseEntity<>(createdRentable, HttpStatus.CREATED);
     }
     @GetMapping("{id}")
-    public ResponseEntity<RentableDto> getRentableById(@PathVariable("id") Long rentableId){
-        RentableDto rentableDto = rentableService.getRentableById(rentableId);
-        return new ResponseEntity<>(rentableDto, HttpStatus.OK);
+    public ResponseEntity<APIResponseDto> getRentableById(@PathVariable("id") Long rentableId){
+        APIResponseDto apiResponseDto = rentableService.getRentableById(rentableId);
+        return new ResponseEntity<>(apiResponseDto, HttpStatus.OK);
     }
 }
