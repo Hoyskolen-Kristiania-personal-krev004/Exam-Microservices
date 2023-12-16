@@ -19,4 +19,5 @@ public class ContractDto {
     private Long ownerId;
     private Long renterId;
     private Long rentableId;
+    private int rentalCost;
 }

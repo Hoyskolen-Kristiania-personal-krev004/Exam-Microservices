@@ -5,12 +5,10 @@ import no.exam.contractservice.entity.Contract;
 
 public class ContractMapper {
     public static ContractDto mapToContractDto(Contract contract){
-        ContractDto contractDto = new ContractDto(contract.getId(), contract.getCreationDate(), contract.getStartDate(), contract.getEndDate(), contract.getOwnerId(), contract.getRenterId(), contract.getRentableId());
-        return contractDto;
+        return new ContractDto(contract.getId(), contract.getCreationDate(), contract.getStartDate(), contract.getEndDate(), contract.getOwnerId(), contract.getRenterId(), contract.getRentableId(), contract.getRentalCost());
     }
 
     public static Contract mapToContract(ContractDto contractDto){
-        Contract contract = new Contract(contractDto.getId(), contractDto.getCreationDate(), contractDto.getStartDate(), contractDto.getEndDate(), contractDto.getOwnerId(), contractDto.getRenterId(), contractDto.getRentableId());
-        return contract;
+        return new Contract(contractDto.getId(), contractDto.getCreationDate(), contractDto.getStartDate(), contractDto.getEndDate(), contractDto.getOwnerId(), contractDto.getRenterId(), contractDto.getRentableId(), contractDto.getRentalCost());
     }
 }

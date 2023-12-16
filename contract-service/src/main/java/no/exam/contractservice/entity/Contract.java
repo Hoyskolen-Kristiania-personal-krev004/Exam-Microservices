@@ -29,4 +29,5 @@ public class Contract {
     private Long renterId;
     @Column(nullable = false)
     private Long rentableId;
+    private int rentalCost;
 }
