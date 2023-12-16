@@ -17,4 +17,10 @@ public class ContractServiceImpl implements ContractService {
         Contract createdContract = contractRepository.save(ContractMapper.mapToContract(contractDto));
         return ContractMapper.mapToContractDto(createdContract);
     }
+
+    @Override
+    public ContractDto getContractById(Long id) {
+        Contract contract = contractRepository.findContractById(id);
+        return ContractMapper.mapToContractDto(contract);
+    }
 }
