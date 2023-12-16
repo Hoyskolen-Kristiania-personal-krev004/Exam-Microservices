@@ -33,12 +33,12 @@ public class RentableServiceImpl implements RentableService {
         return mapToRentableDto(rentableRepository.findByRentableId(rentableId));
     }
 
+    @Override
     @Retry(name = "${spring.application.name}")
     @CircuitBreaker(name = "${spring.application.name}", fallbackMethod = "getDefaultOwner")
-    @Override
     public APIResponseDto getAPIRentableById(Long rentableId) {
 
-        log.info("Inside getAPIRentableById");
+        log.info("Getting Rentable object and owner");
 
         Rentable rentable = rentableRepository.findByRentableId(rentableId);
         UserDto owner = apiClient.getUser(rentable.getOwnerId());
@@ -51,7 +51,7 @@ public class RentableServiceImpl implements RentableService {
 
     public APIResponseDto getDefaultOwner(Long rentableId, Exception exception) {
 
-        log.info("Inside getDefaultOwner");
+        log.info("Failed to get owner, using fallback method");
 
         Rentable rentable = rentableRepository.findByRentableId(rentableId);
         UserDto owner = new UserDto();
