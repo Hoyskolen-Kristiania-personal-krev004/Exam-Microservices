@@ -28,12 +28,17 @@ public class RentableServiceImpl implements RentableService {
         return mapToRentableDto(createdRentable);
     }
 
+    @Override
+    public RentableDto getRentableById(Long rentableId) {
+        return mapToRentableDto(rentableRepository.findByRentableId(rentableId));
+    }
+
     @Retry(name = "${spring.application.name}")
     @CircuitBreaker(name = "${spring.application.name}", fallbackMethod = "getDefaultOwner")
     @Override
-    public APIResponseDto getRentableById(Long rentableId) {
+    public APIResponseDto getAPIRentableById(Long rentableId) {
 
-        log.info("Inside getRentableById");
+        log.info("Inside getAPIRentableById");
 
         Rentable rentable = rentableRepository.findByRentableId(rentableId);
         UserDto owner = apiClient.getUser(rentable.getOwnerId());

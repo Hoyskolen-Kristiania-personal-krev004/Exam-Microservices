@@ -1,6 +1,7 @@
 package no.exam.contractservice.controller;
 
 import lombok.AllArgsConstructor;
+import no.exam.contractservice.dto.APIResponseDto;
 import no.exam.contractservice.dto.ContractDto;
 import no.exam.contractservice.service.ContractService;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,8 @@ public class ContractController {
         return new ResponseEntity<>(createdContract, HttpStatus.CREATED);
     }
     @GetMapping("{id}")
-    public ResponseEntity<ContractDto> getContractById(@PathVariable("id") Long id){
-        ContractDto contractDto = contractService.getContractById(id);
-        return new ResponseEntity<>(contractDto, HttpStatus.OK);
+    public ResponseEntity<APIResponseDto> getContractById(@PathVariable("id") Long id){
+        APIResponseDto apiResponseDto = contractService.getContractById(id);
+        return new ResponseEntity<>(apiResponseDto, HttpStatus.OK);
     }
 }

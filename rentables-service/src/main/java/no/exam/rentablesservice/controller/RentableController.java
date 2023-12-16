@@ -18,9 +18,14 @@ public class RentableController {
         RentableDto createdRentable = rentableService.createRentable(rentableDto);
         return new ResponseEntity<>(createdRentable, HttpStatus.CREATED);
     }
+    @GetMapping("contract/{id}")
+    public ResponseEntity<RentableDto> getRentableById(@PathVariable("id") Long rentableId){
+        RentableDto rentableDto = rentableService.getRentableById(rentableId);
+        return new ResponseEntity<>(rentableDto, HttpStatus.OK);
+    }
     @GetMapping("{id}")
-    public ResponseEntity<APIResponseDto> getRentableById(@PathVariable("id") Long rentableId){
-        APIResponseDto apiResponseDto = rentableService.getRentableById(rentableId);
+    public ResponseEntity<APIResponseDto> getAPIRentableById(@PathVariable("id") Long rentableId){
+        APIResponseDto apiResponseDto = rentableService.getAPIRentableById(rentableId);
         return new ResponseEntity<>(apiResponseDto, HttpStatus.OK);
     }
 }

@@ -6,7 +6,9 @@ import no.exam.rentablesservice.dto.RentableDto;
 public interface RentableService {
     RentableDto createRentable(RentableDto rentableDto);
 
-    APIResponseDto getRentableById(Long rentableId);
+    RentableDto getRentableById(Long rentableId);
+
+    APIResponseDto getAPIRentableById(Long rentableId);
 
     /*RentableDto getRentableByOwner(Long ownerId);*/
 }
