@@ -1,5 +1,6 @@
 package no.exam.userservice.service.impl;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import no.exam.userservice.dto.UserDto;
 import no.exam.userservice.entity.User;
@@ -12,6 +13,7 @@ import static no.exam.userservice.mapper.UserMapper.mapToUserDto;
 
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
@@ -32,5 +34,19 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserByUsername(String username) {
         User user = userRepository.findByUsername(username);
         return mapToUserDto(user);
+    }
+
+    @Override
+    public UserDto outgoingPayment(Long userId, int value) {
+        User user = userRepository.findByUserId(userId);
+        user.setCurrentBalance(user.getCurrentBalance()-value);
+        return mapToUserDto(userRepository.save(user));
+    }
+
+    @Override
+    public UserDto incomingPayment(Long userId, int value) {
+        User user = userRepository.findByUserId(userId);
+        user.setCurrentBalance(user.getCurrentBalance()+value);
+        return mapToUserDto(userRepository.save(user));
     }
 }

@@ -28,4 +28,14 @@ public class UserController {
         UserDto userDto = userService.getUserByUsername(username);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
+    @PutMapping("{id}/outgoing-payment")
+    public ResponseEntity<UserDto> outgoingPayment(@PathVariable("id") Long userId, int value){
+        UserDto userDto = userService.outgoingPayment(userId, value);
+        return new ResponseEntity<>(userDto, HttpStatus.OK);
+    }
+    @PutMapping("{id}/incoming-payment")
+    public ResponseEntity<UserDto> incomingPayment(@PathVariable("id") Long userId, int value){
+        UserDto userDto = userService.incomingPayment(userId, value);
+        return new ResponseEntity<>(userDto, HttpStatus.OK);
+    }
 }

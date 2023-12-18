@@ -16,4 +16,5 @@ public class UserDto {
     private String FirstName;
     private String lastName;
     private String email;
+    private int currentBalance;
 }
