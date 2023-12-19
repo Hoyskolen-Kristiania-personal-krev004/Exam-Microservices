@@ -1,4 +1,4 @@
-package no.exam.transactionservice.config;
+package no.exam.contractservice.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -12,25 +12,25 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 public class RabbitMQConfig {
-    @Value("${rabbitmq.queue.transaction.name}")
-    private String transactionQueue;
+    @Value("${rabbitmq.queue.contract.name}")
+    private String contractQueue;
     @Value("${rabbitmq.exchange.name}")
-    private String transactionExchange;
+    private String contractExchange;
     @Value("${rabbitmq.binding.routing.key}")
-    private String transactionKey;
+    private String contractKey;
 
 
     @Bean
-    public Queue transactionQueue(){
-        return new Queue(transactionQueue);
+    public Queue contractQueue(){
+        return new Queue(contractQueue);
     }
     @Bean
     public TopicExchange exchange(){
-        return new TopicExchange(transactionExchange);
+        return new TopicExchange(contractExchange);
     }
     @Bean
     public Binding binding(){
-        return BindingBuilder.bind(transactionQueue()).to(exchange()).with(transactionKey);
+        return BindingBuilder.bind(contractQueue()).to(exchange()).with(contractKey);
     }
     @Bean
     public MessageConverter converter(){
@@ -38,7 +38,7 @@ public class RabbitMQConfig {
     }
     @Bean
     @Transactional
-    public AmqpTemplate transactionTemplate(ConnectionFactory connectionFactory){
+    public AmqpTemplate amqpTemplate(ConnectionFactory connectionFactory){
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(converter());
         return rabbitTemplate;

@@ -1,6 +1,5 @@
 package no.exam.userservice.service.impl;
 
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import no.exam.userservice.dto.UserDto;
 import no.exam.userservice.entity.User;
@@ -13,7 +12,6 @@ import static no.exam.userservice.mapper.UserMapper.mapToUserDto;
 
 
 @Service
-@Transactional
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
